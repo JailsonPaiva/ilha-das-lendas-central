@@ -43,38 +43,43 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
+      {/* Banner Principal */}
+      <section className="relative">
+        <div className="w-full h-80 md:h-96 overflow-hidden">
+          <img 
+            src="/lovable-uploads/a1cc03e2-5b02-4d4c-919f-f57344b8a59b.png"
+            alt="Ilha das Lendas Banner"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"></div>
+        </div>
+      </section>
+
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-card/30 py-20">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23fbbf24%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
         
         <div className="container mx-auto px-4 relative">
           <div className="text-center max-w-4xl mx-auto">
-            <div className="flex justify-center mb-6">
-              <div className="relative">
-                <Crown className="h-16 w-16 text-gold animate-glow-pulse" />
-                <div className="absolute inset-0 bg-gold/20 rounded-full blur-xl animate-pulse"></div>
-              </div>
-            </div>
-            
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="bg-gradient-royal bg-clip-text text-transparent">
-                Ilha das Lendas
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              <span className="bg-gradient-main bg-clip-text text-transparent">
+                Acompanhe os Melhores
               </span>
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              A plataforma definitiva para acompanhar estatísticas, cartas e transmissões de League of Legends
+              Estatísticas, cartas exclusivas e transmissões ao vivo dos principais campeonatos de LoL
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/calendario">
-                <Button size="lg" className="bg-gradient-royal hover:shadow-royal transition-all duration-300 text-lg px-8 py-6">
+                <Button size="lg" className="bg-gradient-main hover:shadow-electric transition-all duration-300 text-lg px-8 py-6">
                   <Calendar className="h-5 w-5 mr-2" />
                   Ver Calendário
                 </Button>
               </Link>
               <Link to="/cartas">
-                <Button size="lg" variant="outline" className="hover:bg-gold/10 hover:border-gold hover:text-gold transition-all duration-300 text-lg px-8 py-6">
+                <Button size="lg" variant="outline" className="hover:bg-electric-blue/10 hover:border-electric-blue hover:text-electric-blue transition-all duration-300 text-lg px-8 py-6">
                   <Trophy className="h-5 w-5 mr-2" />
                   Explorar Cartas
                 </Button>

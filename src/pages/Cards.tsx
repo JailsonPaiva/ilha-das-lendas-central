@@ -181,10 +181,10 @@ const Cards = () => {
                       variant={selectedRarity === rarity.value ? "default" : "outline"}
                       size="sm"
                       onClick={() => setSelectedRarity(rarity.value)}
-                      className={`transition-all duration-300 ${
+                      className={`transition-all duration-300 border-2 ${
                         selectedRarity === rarity.value 
-                          ? "bg-gradient-royal text-primary-foreground shadow-royal" 
-                          : "hover:bg-gold/10 hover:text-gold hover:border-gold/50"
+                          ? "bg-electric-blue text-white border-electric-blue shadow-electric transform scale-105" 
+                          : "hover:bg-electric-blue/10 hover:text-electric-blue hover:border-electric-blue/50 border-border bg-card"
                       }`}
                     >
                       <Icon className="h-4 w-4 mr-2" />
