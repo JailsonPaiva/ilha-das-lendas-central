@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'inter': ['Inter', 'sans-serif'],
+				'orbitron': ['Orbitron', 'monospace'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,7 +65,39 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Custom LoL Colors
+				gold: {
+					DEFAULT: 'hsl(var(--gold))',
+					light: 'hsl(var(--gold-light))',
+					dark: 'hsl(var(--gold-dark))'
+				},
+				magic: {
+					DEFAULT: 'hsl(var(--magic-purple))',
+					light: 'hsl(var(--magic-purple-light))',
+					dark: 'hsl(var(--magic-purple-dark))'
+				},
+				cyber: {
+					DEFAULT: 'hsl(var(--cyber-cyan))',
+					light: 'hsl(var(--cyber-cyan-light))',
+					dark: 'hsl(var(--cyber-cyan-dark))'
 				}
+			},
+			backgroundImage: {
+				'gradient-royal': 'var(--gradient-royal)',
+				'gradient-magic': 'var(--gradient-magic)',
+				'gradient-card': 'var(--gradient-card)',
+				'gradient-border': 'var(--gradient-border)'
+			},
+			boxShadow: {
+				'royal': 'var(--shadow-royal)',
+				'magic': 'var(--shadow-magic)',
+				'cyber': 'var(--shadow-cyber)',
+				'card': 'var(--shadow-card)'
+			},
+			transitionTimingFunction: {
+				'smooth': 'var(--transition-smooth)',
+				'bounce': 'var(--transition-bounce)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +120,38 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'glow-pulse': {
+					'0%, 100%': { 
+						boxShadow: '0 0 20px hsl(var(--gold) / 0.3)' 
+					},
+					'50%': { 
+						boxShadow: '0 0 40px hsl(var(--gold) / 0.6), 0 0 60px hsl(var(--cyber-cyan) / 0.3)' 
+					}
+				},
+				'card-hover': {
+					'0%': { 
+						transform: 'translateY(0) scale(1)' 
+					},
+					'100%': { 
+						transform: 'translateY(-8px) scale(1.02)' 
+					}
+				},
+				'shimmer': {
+					'0%': { 
+						backgroundPosition: '-200% 0' 
+					},
+					'100%': { 
+						backgroundPosition: '200% 0' 
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
+				'card-hover': 'card-hover 0.3s ease-out',
+				'shimmer': 'shimmer 2s linear infinite'
 			}
 		}
 	},
