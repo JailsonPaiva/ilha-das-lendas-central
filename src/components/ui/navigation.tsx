@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Crown, Calendar, Users, Trophy, Info } from "lucide-react";
+import { Crown, Calendar, Users, Trophy, Info, Target } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const Navigation = () => {
@@ -10,6 +10,7 @@ const Navigation = () => {
     { path: "/calendario", label: "Calendário", icon: Calendar },
     { path: "/jogadores", label: "Jogadores", icon: Users },
     { path: "/cartas", label: "Cartas", icon: Trophy },
+    { path: "/palpites", label: "Palpites", icon: Target },
     { path: "/sobre", label: "Sobre", icon: Info },
   ];
 
