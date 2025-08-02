@@ -2,73 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design System - Ilha das Lendas (LoL Inspired)
-All colors MUST be HSL for perfect theming.
+/* Design System - Ilha das Lendas
+Nova paleta baseada no logo oficial
 */
 
 @layer base {
   :root {
     /* Base Dark Theme */
-    --background: 220 25% 8%;
-    --foreground: 45 100% 85%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
 
     /* Card System */
-    --card: 220 20% 12%;
-    --card-foreground: 45 90% 90%;
+    --card: 250 78% 10%;
+    --card-foreground: 0 0% 100%;
 
     /* Popover */
-    --popover: 220 25% 10%;
-    --popover-foreground: 45 90% 90%;
+    --popover: 250 78% 8%;
+    --popover-foreground: 0 0% 100%;
 
-    /* Primary - Royal Gold */
-    --primary: 45 100% 60%;
-    --primary-foreground: 220 25% 8%;
+    /* Primary - Electric Blue */
+    --primary: 230 94% 62%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Purple Magic */
-    --secondary: 270 60% 35%;
-    --secondary-foreground: 45 100% 85%;
+    /* Secondary - Magenta/Lilac */
+    --secondary: 291 100% 69%;
+    --secondary-foreground: 0 0% 100%;
 
     /* Muted */
-    --muted: 220 15% 20%;
-    --muted-foreground: 220 10% 60%;
+    --muted: 250 78% 15%;
+    --muted-foreground: 0 0% 70%;
 
-    /* Accent - Cyan Glow */
-    --accent: 190 100% 50%;
-    --accent-foreground: 220 25% 8%;
+    /* Accent - Cyan Light */
+    --accent: 191 100% 64%;
+    --accent-foreground: 0 0% 0%;
 
     /* Destructive */
     --destructive: 0 84% 60%;
-    --destructive-foreground: 45 100% 95%;
+    --destructive-foreground: 0 0% 100%;
 
     /* Borders & Inputs */
-    --border: 220 20% 25%;
-    --input: 220 20% 15%;
-    --ring: 45 100% 60%;
+    --border: 250 78% 20%;
+    --input: 250 78% 12%;
+    --ring: 230 94% 62%;
 
-    /* Custom LoL Colors */
-    --gold: 45 100% 60%;
-    --gold-light: 45 100% 75%;
-    --gold-dark: 45 100% 45%;
+    /* Ilha das Lendas Custom Colors */
+    --electric-blue: 230 94% 62%;
+    --electric-blue-light: 230 94% 75%;
+    --electric-blue-dark: 230 94% 45%;
     
-    --magic-purple: 270 60% 35%;
-    --magic-purple-light: 270 60% 50%;
-    --magic-purple-dark: 270 60% 20%;
+    --magenta: 291 100% 69%;
+    --magenta-light: 291 100% 80%;
+    --magenta-dark: 291 100% 55%;
     
-    --cyber-cyan: 190 100% 50%;
-    --cyber-cyan-light: 190 100% 65%;
-    --cyber-cyan-dark: 190 100% 35%;
+    --lime-green: 75 88% 57%;
+    --lime-green-light: 75 88% 70%;
+    --lime-green-dark: 75 88% 45%;
+    
+    --cyan-light: 191 100% 64%;
+    --cyan-light-bright: 191 100% 75%;
+    --cyan-light-dim: 191 100% 50%;
+    
+    --dark-purple: 250 78% 10%;
+    --dark-purple-light: 250 78% 15%;
+    --dark-purple-dark: 250 78% 5%;
 
     /* Gradients */
-    --gradient-royal: linear-gradient(135deg, hsl(var(--gold-dark)), hsl(var(--gold)), hsl(var(--gold-light)));
-    --gradient-magic: linear-gradient(135deg, hsl(var(--magic-purple-dark)), hsl(var(--magic-purple)), hsl(var(--cyber-cyan)));
-    --gradient-card: linear-gradient(145deg, hsl(220 25% 10%), hsl(220 20% 15%), hsl(220 25% 12%));
-    --gradient-border: linear-gradient(90deg, hsl(var(--gold)), hsl(var(--cyber-cyan)), hsl(var(--magic-purple)));
+    --gradient-main: linear-gradient(180deg, hsl(var(--dark-purple)), hsl(var(--electric-blue)));
+    --gradient-magic: linear-gradient(135deg, hsl(var(--magenta-dark)), hsl(var(--magenta)), hsl(var(--cyan-light)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--dark-purple)), hsl(var(--dark-purple-light)), hsl(var(--dark-purple-dark)));
+    --gradient-border: linear-gradient(90deg, hsl(var(--electric-blue)), hsl(var(--magenta)), hsl(var(--cyan-light)));
 
     /* Shadows & Effects */
-    --shadow-royal: 0 0 30px hsl(var(--gold) / 0.3);
-    --shadow-magic: 0 0 30px hsl(var(--magic-purple) / 0.4);
-    --shadow-cyber: 0 0 30px hsl(var(--cyber-cyan) / 0.4);
-    --shadow-card: 0 10px 40px hsl(220 25% 5% / 0.6);
+    --shadow-electric: 0 0 30px hsl(var(--electric-blue) / 0.4);
+    --shadow-magenta: 0 0 30px hsl(var(--magenta) / 0.4);
+    --shadow-cyan: 0 0 30px hsl(var(--cyan-light) / 0.4);
+    --shadow-card: 0 10px 40px hsl(var(--dark-purple-dark) / 0.8);
 
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

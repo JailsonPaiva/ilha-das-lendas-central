@@ -66,33 +66,43 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom LoL Colors
-				gold: {
-					DEFAULT: 'hsl(var(--gold))',
-					light: 'hsl(var(--gold-light))',
-					dark: 'hsl(var(--gold-dark))'
+				// Ilha das Lendas Custom Colors
+				'electric-blue': {
+					DEFAULT: 'hsl(var(--electric-blue))',
+					light: 'hsl(var(--electric-blue-light))',
+					dark: 'hsl(var(--electric-blue-dark))'
 				},
-				magic: {
-					DEFAULT: 'hsl(var(--magic-purple))',
-					light: 'hsl(var(--magic-purple-light))',
-					dark: 'hsl(var(--magic-purple-dark))'
+				magenta: {
+					DEFAULT: 'hsl(var(--magenta))',
+					light: 'hsl(var(--magenta-light))',
+					dark: 'hsl(var(--magenta-dark))'
 				},
-				cyber: {
-					DEFAULT: 'hsl(var(--cyber-cyan))',
-					light: 'hsl(var(--cyber-cyan-light))',
-					dark: 'hsl(var(--cyber-cyan-dark))'
+				'lime-green': {
+					DEFAULT: 'hsl(var(--lime-green))',
+					light: 'hsl(var(--lime-green-light))',
+					dark: 'hsl(var(--lime-green-dark))'
+				},
+				'cyan-light': {
+					DEFAULT: 'hsl(var(--cyan-light))',
+					bright: 'hsl(var(--cyan-light-bright))',
+					dim: 'hsl(var(--cyan-light-dim))'
+				},
+				'dark-purple': {
+					DEFAULT: 'hsl(var(--dark-purple))',
+					light: 'hsl(var(--dark-purple-light))',
+					dark: 'hsl(var(--dark-purple-dark))'
 				}
 			},
 			backgroundImage: {
-				'gradient-royal': 'var(--gradient-royal)',
+				'gradient-main': 'var(--gradient-main)',
 				'gradient-magic': 'var(--gradient-magic)',
 				'gradient-card': 'var(--gradient-card)',
 				'gradient-border': 'var(--gradient-border)'
 			},
 			boxShadow: {
-				'royal': 'var(--shadow-royal)',
-				'magic': 'var(--shadow-magic)',
-				'cyber': 'var(--shadow-cyber)',
+				'electric': 'var(--shadow-electric)',
+				'magenta': 'var(--shadow-magenta)',
+				'cyan': 'var(--shadow-cyan)',
 				'card': 'var(--shadow-card)'
 			},
 			transitionTimingFunction: {

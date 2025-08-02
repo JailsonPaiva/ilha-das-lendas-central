@@ -18,14 +18,15 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
+          <Link to="/" className="flex items-center space-x-3 group">
             <div className="relative">
-              <Crown className="h-8 w-8 text-gold transition-all duration-300 group-hover:text-gold-light group-hover:drop-shadow-[0_0_10px_hsl(var(--gold))]" />
-              <div className="absolute inset-0 bg-gold/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <img 
+                src="/lovable-uploads/e1df045f-fcda-4212-ad08-070cf2e14111.png" 
+                alt="Ilha das Lendas Logo" 
+                className="h-10 w-auto transition-all duration-300 group-hover:drop-shadow-[0_0_15px_hsl(var(--electric-blue))]"
+              />
+              <div className="absolute inset-0 bg-electric-blue/20 rounded blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-            <span className="text-2xl font-bold bg-gradient-royal bg-clip-text text-transparent">
-              Ilha das Lendas
-            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -41,8 +42,8 @@ const Navigation = () => {
                     size="sm"
                     className={`relative transition-all duration-300 ${
                       isActive 
-                        ? "bg-gradient-royal text-primary-foreground shadow-royal" 
-                        : "text-foreground hover:text-gold hover:bg-gold/10"
+                        ? "bg-gradient-main text-primary-foreground shadow-electric" 
+                        : "text-foreground hover:text-electric-blue hover:bg-electric-blue/10"
                     }`}
                   >
                     <Icon className="h-4 w-4 mr-2" />
@@ -69,8 +70,8 @@ const Navigation = () => {
                     size="sm"
                     className={`relative transition-all duration-300 ${
                       isActive 
-                        ? "bg-gradient-royal text-primary-foreground shadow-royal" 
-                        : "text-foreground hover:text-gold hover:bg-gold/10"
+                        ? "bg-gradient-main text-primary-foreground shadow-electric" 
+                        : "text-foreground hover:text-electric-blue hover:bg-electric-blue/10"
                     }`}
                   >
                     <Icon className="h-4 w-4" />
