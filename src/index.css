@@ -45,59 +45,46 @@ Nova paleta baseada no logo oficial
     --input: 250 78% 12%;
     --ring: 230 94% 62%;
 
-    /* Ilha das Lendas Custom Colors */
+    /* Nova Paleta Ilha das Lendas */
+    --black: 0 0% 0%;
+    --dark-purple: 250 100% 12%;
     --electric-blue: 230 94% 62%;
-    --electric-blue-light: 230 94% 75%;
-    --electric-blue-dark: 230 94% 45%;
-    
-    --magenta: 291 100% 69%;
-    --magenta-light: 291 100% 80%;
-    --magenta-dark: 291 100% 55%;
-    
+    --lilac-magenta: 291 100% 69%;
     --lime-green: 75 88% 57%;
-    --lime-green-light: 75 88% 70%;
-    --lime-green-dark: 75 88% 45%;
-    
     --cyan-light: 191 100% 64%;
-    --cyan-light-bright: 191 100% 75%;
-    --cyan-light-dim: 191 100% 50%;
-    
-    --dark-purple: 250 78% 10%;
-    --dark-purple-light: 250 78% 15%;
-    --dark-purple-dark: 250 78% 5%;
+    --white: 0 0% 100%;
 
-    /* Gradients */
-    --gradient-main: linear-gradient(180deg, hsl(var(--dark-purple)), hsl(var(--electric-blue)));
-    --gradient-magic: linear-gradient(135deg, hsl(var(--magenta-dark)), hsl(var(--magenta)), hsl(var(--cyan-light)));
-    --gradient-card: linear-gradient(145deg, hsl(var(--dark-purple)), hsl(var(--dark-purple-light)), hsl(var(--dark-purple-dark)));
-    --gradient-border: linear-gradient(90deg, hsl(var(--electric-blue)), hsl(var(--magenta)), hsl(var(--cyan-light)));
+    /* Gradientes Aprimorados */
+    --gradient-main: linear-gradient(135deg, hsl(var(--dark-purple)) 0%, hsl(var(--electric-blue)) 50%, hsl(var(--lilac-magenta)) 100%);
+    --gradient-magic: linear-gradient(135deg, hsl(var(--dark-purple)) 0%, hsl(var(--lilac-magenta)) 50%, hsl(var(--cyan-light)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--black)) 0%, hsl(var(--dark-purple)) 50%, hsl(var(--black)) 100%);
+    --gradient-border: linear-gradient(90deg, hsl(var(--electric-blue)) 0%, hsl(var(--lilac-magenta)) 50%, hsl(var(--cyan-light)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--black)) 0%, hsl(var(--dark-purple)) 25%, hsl(var(--electric-blue)) 50%, hsl(var(--lilac-magenta)) 75%, hsl(var(--cyan-light)) 100%);
+    --gradient-glow: linear-gradient(45deg, hsl(var(--electric-blue)) 0%, hsl(var(--lilac-magenta)) 25%, hsl(var(--cyan-light)) 50%, hsl(var(--lime-green)) 75%, hsl(var(--electric-blue)) 100%);
 
-    /* Shadows & Effects */
-    --shadow-electric: 0 0 30px hsl(var(--electric-blue) / 0.4);
-    --shadow-magenta: 0 0 30px hsl(var(--magenta) / 0.4);
-    --shadow-cyan: 0 0 30px hsl(var(--cyan-light) / 0.4);
-    --shadow-card: 0 10px 40px hsl(var(--dark-purple-dark) / 0.8);
+    /* Sombras Aprimoradas */
+    --shadow-electric: 0 0 30px hsl(var(--electric-blue) / 0.4), 0 0 60px hsl(var(--electric-blue) / 0.2);
+    --shadow-magenta: 0 0 30px hsl(var(--lilac-magenta) / 0.4), 0 0 60px hsl(var(--lilac-magenta) / 0.2);
+    --shadow-cyan: 0 0 30px hsl(var(--cyan-light) / 0.4), 0 0 60px hsl(var(--cyan-light) / 0.2);
+    --shadow-card: 0 10px 40px hsl(var(--black) / 0.8), 0 0 20px hsl(var(--electric-blue) / 0.1);
+    --shadow-royal: 0 0 40px hsl(var(--lilac-magenta) / 0.5), 0 0 80px hsl(var(--lilac-magenta) / 0.3);
+    --shadow-magic: 0 0 40px hsl(var(--cyan-light) / 0.5), 0 0 80px hsl(var(--cyan-light) / 0.3);
+    --shadow-cyber: 0 0 40px hsl(var(--electric-blue) / 0.5), 0 0 80px hsl(var(--electric-blue) / 0.3);
 
-    /* Animations */
+    /* Animações Aprimoradas */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-elastic: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -111,5 +98,29 @@ Nova paleta baseada no logo oficial
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Componentes Customizados */
+@layer components {
+  .glass-effect {
+    @apply backdrop-blur-md bg-card/30 border border-border/50;
+  }
+  
+  .neon-glow {
+    box-shadow: 0 0 20px currentColor, 0 0 40px currentColor, 0 0 60px currentColor;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-electric-blue via-lilac-magenta to-cyan-light bg-clip-text text-transparent;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
+  }
+  
+  .button-glow {
+    @apply relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-glow before:opacity-0 hover:before:opacity-20 before:transition-opacity before:duration-300;
   }
 }

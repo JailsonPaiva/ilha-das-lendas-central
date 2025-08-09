@@ -66,48 +66,36 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Ilha das Lendas Custom Colors
-				'electric-blue': {
-					DEFAULT: 'hsl(var(--electric-blue))',
-					light: 'hsl(var(--electric-blue-light))',
-					dark: 'hsl(var(--electric-blue-dark))'
-				},
-				magenta: {
-					DEFAULT: 'hsl(var(--magenta))',
-					light: 'hsl(var(--magenta-light))',
-					dark: 'hsl(var(--magenta-dark))'
-				},
-				'lime-green': {
-					DEFAULT: 'hsl(var(--lime-green))',
-					light: 'hsl(var(--lime-green-light))',
-					dark: 'hsl(var(--lime-green-dark))'
-				},
-				'cyan-light': {
-					DEFAULT: 'hsl(var(--cyan-light))',
-					bright: 'hsl(var(--cyan-light-bright))',
-					dim: 'hsl(var(--cyan-light-dim))'
-				},
-				'dark-purple': {
-					DEFAULT: 'hsl(var(--dark-purple))',
-					light: 'hsl(var(--dark-purple-light))',
-					dark: 'hsl(var(--dark-purple-dark))'
-				}
+				// Nova Paleta Ilha das Lendas
+				'black': 'hsl(var(--black))',
+				'dark-purple': 'hsl(var(--dark-purple))',
+				'electric-blue': 'hsl(var(--electric-blue))',
+				'lilac-magenta': 'hsl(var(--lilac-magenta))',
+				'lime-green': 'hsl(var(--lime-green))',
+				'cyan-light': 'hsl(var(--cyan-light))',
+				'white': 'hsl(var(--white))'
 			},
 			backgroundImage: {
 				'gradient-main': 'var(--gradient-main)',
 				'gradient-magic': 'var(--gradient-magic)',
 				'gradient-card': 'var(--gradient-card)',
-				'gradient-border': 'var(--gradient-border)'
+				'gradient-border': 'var(--gradient-border)',
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-glow': 'var(--gradient-glow)'
 			},
 			boxShadow: {
 				'electric': 'var(--shadow-electric)',
 				'magenta': 'var(--shadow-magenta)',
 				'cyan': 'var(--shadow-cyan)',
-				'card': 'var(--shadow-card)'
+				'card': 'var(--shadow-card)',
+				'royal': 'var(--shadow-royal)',
+				'magic': 'var(--shadow-magic)',
+				'cyber': 'var(--shadow-cyber)'
 			},
 			transitionTimingFunction: {
 				'smooth': 'var(--transition-smooth)',
-				'bounce': 'var(--transition-bounce)'
+				'bounce': 'var(--transition-bounce)',
+				'elastic': 'var(--transition-elastic)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -133,10 +121,10 @@ export default {
 				},
 				'glow-pulse': {
 					'0%, 100%': { 
-						boxShadow: '0 0 20px hsl(var(--gold) / 0.3)' 
+						boxShadow: '0 0 20px hsl(var(--electric-blue) / 0.3)' 
 					},
 					'50%': { 
-						boxShadow: '0 0 40px hsl(var(--gold) / 0.6), 0 0 60px hsl(var(--cyber-cyan) / 0.3)' 
+						boxShadow: '0 0 40px hsl(var(--electric-blue) / 0.6), 0 0 60px hsl(var(--cyan-light) / 0.3)' 
 					}
 				},
 				'card-hover': {
@@ -154,6 +142,44 @@ export default {
 					'100%': { 
 						backgroundPosition: '200% 0' 
 					}
+				},
+				'float': {
+					'0%, 100%': { 
+						transform: 'translateY(0px)' 
+					},
+					'50%': { 
+						transform: 'translateY(-10px)' 
+					}
+				},
+				'pulse-glow': {
+					'0%, 100%': { 
+						opacity: '1',
+						transform: 'scale(1)' 
+					},
+					'50%': { 
+						opacity: '0.7',
+						transform: 'scale(1.05)' 
+					}
+				},
+				'slide-in': {
+					'0%': { 
+						transform: 'translateX(-100%)',
+						opacity: '0' 
+					},
+					'100%': { 
+						transform: 'translateX(0)',
+						opacity: '1' 
+					}
+				},
+				'fade-in-up': {
+					'0%': { 
+						transform: 'translateY(30px)',
+						opacity: '0' 
+					},
+					'100%': { 
+						transform: 'translateY(0)',
+						opacity: '1' 
+					}
 				}
 			},
 			animation: {
@@ -161,7 +187,11 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
 				'card-hover': 'card-hover 0.3s ease-out',
-				'shimmer': 'shimmer 2s linear infinite'
+				'shimmer': 'shimmer 2s linear infinite',
+				'float': 'float 3s ease-in-out infinite',
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+				'slide-in': 'slide-in 0.5s ease-out',
+				'fade-in-up': 'fade-in-up 0.6s ease-out'
 			}
 		}
 	},

@@ -1,6 +1,7 @@
-import Navigation from "@/components/ui/navigation";
+import Header from "@/components/ui/header";
 import { Card } from "@/components/ui/card";
-import { Trophy, Medal, Award } from "lucide-react";
+import { Trophy, Medal, Award, Target } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface TeamPrediction {
   teamLogo: string;
@@ -103,124 +104,128 @@ const Palpites = () => {
   const getPositionIcon = (position: number) => {
     switch (position) {
       case 1:
-        return <Trophy className="h-6 w-6 text-yellow-500" />;
+        return <Trophy className="h-5 w-5 text-yellow-500" />;
       case 2:
-        return <Medal className="h-6 w-6 text-gray-400" />;
+        return <Medal className="h-5 w-5 text-gray-400" />;
       case 3:
-        return <Award className="h-6 w-6 text-amber-600" />;
+        return <Award className="h-5 w-5 text-amber-600" />;
       default:
-        return null;
+        return <span className="text-sm font-bold text-muted-foreground">#{position}</span>;
+    }
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut" as const
+      }
     }
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
+    <div className="min-h-screen bg-black">
+      <Header />
       
       <div className="container mx-auto px-4 py-8">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-main bg-clip-text text-transparent">
-              Palpites da IDLH
-            </span>
+        {/* Header */}
+        <motion.div 
+          className="text-center mb-8"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h1 className="text-4xl font-bold text-gradient mb-4 flex items-center justify-center">
+            <Target className="h-8 w-8 mr-3" />
+            Palpites
           </h1>
-          <p className="text-muted-foreground text-lg">
-            Ranking dos melhores palpiteiros da comunidade
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Ranking dos melhores prognosticadores da comunidade
           </p>
-        </div>
+        </motion.div>
 
-        <Card className="bg-card/50 backdrop-blur border-border/50">
-          <div className="p-6">
-            {/* Header */}
-            <div className="grid grid-cols-12 gap-4 mb-6 pb-4 border-b border-border">
-              <div className="col-span-1 text-center">
-                <span className="font-bold text-sm text-muted-foreground">#</span>
-              </div>
-              <div className="col-span-3">
-                <span className="font-bold text-sm text-muted-foreground">USUÁRIO</span>
-              </div>
-              <div className="col-span-6 text-center">
-                <span className="font-bold text-sm text-muted-foreground">PALPITES</span>
-              </div>
-              <div className="col-span-2 text-center">
-                <span className="font-bold text-sm text-muted-foreground">PONTOS</span>
-              </div>
+        {/* Stats Summary */}
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <div className="glass-effect rounded-lg p-4 text-center">
+            <div className="text-2xl font-bold text-electric-blue">{userPredictions.length}</div>
+            <div className="text-sm text-muted-foreground">Participantes</div>
+          </div>
+          <div className="glass-effect rounded-lg p-4 text-center">
+            <div className="text-2xl font-bold text-lilac-magenta">
+              {Math.max(...userPredictions.map(u => u.totalPoints))}
             </div>
+            <div className="text-sm text-muted-foreground">Maior Pontuação</div>
+          </div>
+          <div className="glass-effect rounded-lg p-4 text-center">
+            <div className="text-2xl font-bold text-cyan-light">
+              {userPredictions.filter(u => u.totalPoints >= 15).length}
+            </div>
+            <div className="text-sm text-muted-foreground">Acima de 15pts</div>
+          </div>
+        </motion.div>
 
-            {/* Ranking List */}
-            <div className="space-y-4">
-              {userPredictions.map((user) => (
-                <div 
-                  key={user.id}
-                  className={`grid grid-cols-12 gap-4 items-center p-4 rounded-lg transition-all duration-300 hover:bg-card/80 ${
-                    user.position <= 3 ? 'bg-gradient-to-r from-electric-blue/10 to-transparent border border-electric-blue/20' : 'bg-card/30'
-                  }`}
-                >
-                  {/* Position */}
-                  <div className="col-span-1 text-center flex items-center justify-center">
-                    {getPositionIcon(user.position) || (
-                      <span className="text-2xl font-bold text-muted-foreground">
-                        {user.position}°
-                      </span>
-                    )}
-                  </div>
-
-                  {/* User Info */}
-                  <div className="col-span-3 flex items-center gap-3">
-                    <div className="relative">
-                      <img
-                        src={user.avatar}
-                        alt={user.name}
-                        className="w-12 h-12 rounded-full object-cover border-2 border-electric-blue/30"
-                      />
-                      {user.position <= 3 && (
-                        <div className="absolute -top-1 -right-1 w-6 h-6 bg-electric-blue rounded-full flex items-center justify-center">
-                          <span className="text-xs font-bold text-white">{user.position}</span>
+        {/* Leaderboard */}
+        <motion.div 
+          className="space-y-4"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {userPredictions.map((user, index) => (
+            <motion.div key={user.id} variants={itemVariants}>
+              <Card className="bg-gradient-card border-electric-blue/20 glass-effect">
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center space-x-4">
+                      <div className="flex items-center space-x-2">
+                        {getPositionIcon(user.position)}
+                        <div className="w-12 h-12 rounded-full overflow-hidden">
+                          <img 
+                            src={user.avatar} 
+                            alt={user.name}
+                            className="w-full h-full object-cover"
+                          />
                         </div>
-                      )}
-                    </div>
-                    <span className="font-bold text-foreground">{user.name}</span>
-                  </div>
-
-                  {/* Predictions */}
-                  <div className="col-span-6">
-                    <div className="flex flex-wrap gap-2 justify-center">
-                      {user.predictions.map((prediction, index) => (
-                        <div 
-                          key={index}
-                          className="flex items-center gap-2 bg-background/50 rounded-lg px-3 py-2 border border-border/50"
-                        >
-                          <span className="text-lg">{prediction.teamLogo}</span>
-                          <span className="font-bold text-electric-blue text-sm">
-                            {prediction.score}
-                          </span>
+                        <div>
+                          <h3 className="font-bold text-white">{user.name}</h3>
+                          <p className="text-sm text-muted-foreground">{user.totalPoints} pontos</p>
                         </div>
-                      ))}
+                      </div>
                     </div>
                   </div>
 
-                  {/* Total Points */}
-                  <div className="col-span-2 text-center">
-                    <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full font-bold text-lg ${
-                      user.position === 1 
-                        ? 'bg-gradient-main text-white shadow-electric' 
-                        : 'bg-card text-foreground border border-border'
-                    }`}>
-                      {user.totalPoints}
-                    </div>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {user.predictions.map((prediction, predIndex) => (
+                      <div key={predIndex} className="text-center p-3 bg-dark-purple/30 rounded-lg">
+                        <div className="text-2xl mb-1">{prediction.teamLogo}</div>
+                        <div className="text-sm font-semibold text-white">{prediction.teamName}</div>
+                        <div className="text-xs text-muted-foreground">{prediction.score}</div>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              ))}
-            </div>
-
-            {/* Info Notice */}
-            <div className="mt-8 p-4 bg-electric-blue/10 border border-electric-blue/20 rounded-lg">
-              <p className="text-sm text-electric-blue text-center">
-                <strong>📢 Atenção:</strong> Os palpites do chat serão definidos ao vivo, antes do início dos jogos
-              </p>
-            </div>
-          </div>
-        </Card>
+              </Card>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </div>
   );
