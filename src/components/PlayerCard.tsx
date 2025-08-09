@@ -63,7 +63,7 @@ const PlayerCard = ({ player }: PlayerCardProps) => {
       before:transition-opacity before:duration-300 hover:before:opacity-20
       before:animate-shimmer before:bg-[length:200%_100%]
     `}>
-      {/* Ornamental Border Effect */}
+      {/* Ornamental Border Effect
       <div className="absolute inset-0 bg-gradient-border opacity-0 group-hover:opacity-30 transition-opacity duration-300 rounded-lg blur-sm"></div>
       
       {/* Card Header */}
@@ -80,19 +80,18 @@ const PlayerCard = ({ player }: PlayerCardProps) => {
           </div>
         </div>
         
-        {/* Player Name */}
         <h3 className="text-xl font-bold text-center text-foreground mb-1 drop-shadow-[0_0_5px_rgba(0,0,0,0.8)]">
           {player.name}
         </h3>
       </div>
 
       {/* Player Image */}
-      <div className="relative h-40 overflow-hidden">
+      <div className="relative h-full overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent z-10"></div>
         <img 
           src={player.image} 
           alt={player.name}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          className="w-full h-full  transition-transform duration-500 group-hover:scale-110"
         />
         
         {/* Position & Country */}

@@ -17,10 +17,11 @@ const Players = () => {
       team: "LOUD",
       position: "ADC",
       rating: 94,
-      image: "/lovable-uploads/355b31b9-1f1e-45ea-84bf-0c92536aad2b.png",
+      image: "/lovable-uploads/carta_jogador_1-removebg-preview.png",
+
       country: "🇧🇷",
       stats: { kda: "2.8", winRate: "73%", mvpCount: 8 },
-      rarity: "legendary" as const
+      rarity: "legendary" as const,
     },
     {
       id: "2",
@@ -28,10 +29,11 @@ const Players = () => {
       team: "paiN",
       position: "JGL",
       rating: 91,
-      image: "/lovable-uploads/8cf85f12-d0de-4acd-a823-495a1e966741.png",
+      image: "/lovable-uploads/carta_jogador_1-removebg-preview.png",
+
       country: "🇧🇷",
       stats: { kda: "3.2", winRate: "68%", mvpCount: 6 },
-      rarity: "epic" as const
+      rarity: "epic" as const,
     },
     {
       id: "3",
@@ -42,7 +44,7 @@ const Players = () => {
       image: "/placeholder.svg",
       country: "🇰🇷",
       stats: { kda: "4.1", winRate: "81%", mvpCount: 12 },
-      rarity: "legendary" as const
+      rarity: "legendary" as const,
     },
     {
       id: "4",
@@ -53,7 +55,7 @@ const Players = () => {
       image: "/placeholder.svg",
       country: "🇩🇰",
       stats: { kda: "3.5", winRate: "72%", mvpCount: 7 },
-      rarity: "epic" as const
+      rarity: "epic" as const,
     },
     {
       id: "5",
@@ -64,7 +66,7 @@ const Players = () => {
       image: "/placeholder.svg",
       country: "🇰🇷",
       stats: { kda: "2.9", winRate: "75%", mvpCount: 5 },
-      rarity: "rare" as const
+      rarity: "rare" as const,
     },
     {
       id: "6",
@@ -75,26 +77,28 @@ const Players = () => {
       image: "/placeholder.svg",
       country: "🇰🇷",
       stats: { kda: "1.8", winRate: "79%", mvpCount: 4 },
-      rarity: "rare" as const
-    }
+      rarity: "rare" as const,
+    },
   ];
 
   const positions = ["all", "TOP", "JGL", "MID", "ADC", "SUP"];
   const teams = ["all", "LOUD", "paiN", "T1", "G2", "FNC", "GenG"];
 
-  const filteredPlayers = mockPlayers.filter(player => {
-    const matchesSearch = player.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         player.team.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesPosition = selectedPosition === "all" || player.position === selectedPosition;
+  const filteredPlayers = mockPlayers.filter((player) => {
+    const matchesSearch =
+      player.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      player.team.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesPosition =
+      selectedPosition === "all" || player.position === selectedPosition;
     const matchesTeam = selectedTeam === "all" || player.team === selectedTeam;
-    
+
     return matchesSearch && matchesPosition && matchesTeam;
   });
 
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-8">
@@ -112,7 +116,7 @@ const Players = () => {
             {/* Search */}
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-              <Input 
+              <Input
                 placeholder="Buscar jogador ou time..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -125,12 +129,14 @@ const Players = () => {
               {positions.map((position) => (
                 <Button
                   key={position}
-                  variant={selectedPosition === position ? "default" : "outline"}
+                  variant={
+                    selectedPosition === position ? "default" : "outline"
+                  }
                   size="sm"
                   onClick={() => setSelectedPosition(position)}
                   className={`transition-all duration-300 ${
-                    selectedPosition === position 
-                      ? "bg-gradient-royal text-primary-foreground shadow-royal" 
+                    selectedPosition === position
+                      ? "bg-gradient-royal text-primary-foreground shadow-royal"
                       : "hover:bg-gold/10 hover:text-gold hover:border-gold/50"
                   }`}
                 >
@@ -148,8 +154,8 @@ const Players = () => {
                   size="sm"
                   onClick={() => setSelectedTeam(team)}
                   className={`transition-all duration-300 ${
-                    selectedTeam === team 
-                      ? "bg-gradient-magic text-secondary-foreground shadow-magic" 
+                    selectedTeam === team
+                      ? "bg-gradient-magic text-secondary-foreground shadow-magic"
                       : "hover:bg-magic/10 hover:text-magic hover:border-magic/50"
                   }`}
                 >

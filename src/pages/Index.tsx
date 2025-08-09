@@ -5,6 +5,7 @@ import { Play, Calendar, Users, Trophy, TrendingUp, Crown, Star, Flame } from "l
 import { Link } from "react-router-dom";
 import Navigation from "@/components/ui/navigation";
 import PlayerCard from "@/components/PlayerCard";
+import FramedImage from "@/components/FramedImage";
 
 const Index = () => {
   const liveGame = {
@@ -21,7 +22,7 @@ const Index = () => {
     team: "LOUD",
     position: "ADC",
     rating: 94,
-    image: "/lovable-uploads/355b31b9-1f1e-45ea-84bf-0c92536aad2b.png",
+    image: "/lovable-uploads/carta_jogador_1-removebg-preview.png",
     country: "🇧🇷",
     stats: { kda: "2.8", winRate: "73%", mvpCount: 8 },
     rarity: "legendary" as const
@@ -136,7 +137,13 @@ const Index = () => {
               <Star className="h-6 w-6 text-gold mr-2" />
               Jogador da Semana
             </h3>
-            <PlayerCard player={featuredPlayer} />
+            {/* <PlayerCard player={featuredPlayer} /> */}
+            <FramedImage
+              src={featuredPlayer.image}
+              alt="Jogador Tatu"
+              width={300}
+              height={400}
+            />
           </div>
 
           {/* Upcoming Games */}
